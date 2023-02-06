@@ -1,8 +1,8 @@
 import { useState } from 'react'
 import reactLogo from './assets/react.svg'
-import './App.css'
-import { Posts } from './Posts'
-import { UserPosts } from './UserPosts'
+import './App.scss'
+import { Posts } from './Components/Posts'
+import { UserPosts } from './Components/UserPosts'
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom'
 
 
@@ -11,6 +11,7 @@ function App() {
 
   return (
     <Router>
+      <h1>MyFace</h1>
       <Routes>
         <Route path="/posts"
           element={<Posts />} />

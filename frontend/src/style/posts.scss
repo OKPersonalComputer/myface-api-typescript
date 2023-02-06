@@ -1,0 +1,43 @@
+@function addThings($a, $b) {
+    @return ($a+$b) * 1px;
+}
+
+@mixin gridDisplay() {
+    display: grid;
+    grid-template-columns: 33% 34% 33%;
+    grid-template-rows: 25% 25% 25% 25%;
+    height: auto;
+    padding: 20px;
+}
+
+@mixin button($color: white) {
+    font-size: addThings(5, 5);
+    line-height: 1;
+    background-color: $color;
+
+    &:hover {
+        background-color: orange;
+    }
+}
+
+.like_button {
+    @include button(green);
+}
+
+.dislike_button {
+    @include button(red);
+}
+
+
+/* PC screens */
+@media only screen and (min-width: 1000px) {
+
+    img {
+        max-width: 90%;
+        height: auto;
+    }
+
+    .post-container {
+        @include gridDisplay();
+    }
+}

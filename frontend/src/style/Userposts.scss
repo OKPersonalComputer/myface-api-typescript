@@ -1,0 +1,16 @@
+@use './posts.scss';
+
+.user-container {
+    @include posts.gridDisplay();
+}
+
+/* PC screens */
+@media only screen and (min-width: 1000px) {
+
+    img {
+        max-width: 90%;
+        height: auto;
+    }
+
+
+}
