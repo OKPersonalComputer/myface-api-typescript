@@ -3,12 +3,13 @@ import { useState, useEffect } from "react";
 
 import { Page } from "../../../src/models/api/page";
 import { UserModel } from "../../../src/models/api/userModel"
+import { CreatePostList } from "./GetPosts";
 
 import '../style/UserDetail.scss';
 
 
 export function UserDetail(props: {
-    userDetailID: number
+    userDetailID: number,
 }) {
     const [myData, setMyData] = useState<UserModel | null>(null);
 
@@ -20,16 +21,16 @@ export function UserDetail(props: {
     }, [props.userDetailID]);
 
 
-    let userPostList = [];
-    if (myData) {
-        for (let i = 0; i < 5; i++) {
-            userPostList.push(<div className="userpostindividual">
-                <p>{myData.posts[i].message}</p>
-                <p>{myData.posts[i].createdAt.toString()}</p>
-                <p><img src={myData.posts[i].imageUrl}></img></p>
-            </div>);
-        }
-    }
+    // let userPostList = [];
+    // if (myData) {
+    //     for (let i = 0; i < 5; i++) {
+    //         userPostList.push(<div className="userpostindividual">
+    //             <p>{myData.posts[i].message}</p>
+    //             <p>{myData.posts[i].createdAt.toString()}</p>
+    //             <p><img src={myData.posts[i].imageUrl}></img></p>
+    //         </div>);
+    //     }
+    // }
 
 
     if (!myData) { return <div>Waiting for data!</div> }
@@ -41,9 +42,7 @@ export function UserDetail(props: {
         <p>{myData.name}</p>
         <p>{myData.username}</p>
         <p>{myData.email}</p>
-        < div className="userpostcontainer">
-            {userPostList}
-        </div>
+        <CreatePostList myData={myData.posts} flag={false}/>
     </div>
     );
 
