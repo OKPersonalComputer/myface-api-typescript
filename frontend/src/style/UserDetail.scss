@@ -1,0 +1,121 @@
+/* TABLET */
+@media only screen and (max-width: 1000px) {
+
+    .userprofile {
+        display: grid;
+        grid-template-rows: 0.1fr 0.1fr 0.2fr 0.1fr 0.1fr 0.1fr 1fr;
+    }
+
+    img {
+        width: 100%;
+        height: auto;
+    }
+
+    #coverimg {
+
+        width: 100%;
+        height: auto;
+    }
+
+    #profileimg {
+ 
+        height: auto;
+        width: 20%;
+        margin-left: 20%;
+    }
+
+
+    .userpostcontainer {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+        overflow-x: auto;
+
+        width: 400%;
+    }
+
+    .userpostindividual {
+        width: 100%;
+    }
+
+    // .userprofile {
+    //     display: grid;
+    //     // grid-template-columns: 20% 80%;
+    //     grid-template-rows: 0.8fr 1fr 1fr 3fr 0.1fr 3fr 0.1fr 3fr 1fr;
+    //     height: auto;
+    // }
+
+    // #profileBody {
+    //     font-size: 14px;
+    // }
+
+    // .userprofilecoverimg {
+    //     grid-column-start: 1;
+    //     grid-column-end: 3;
+    //     grid-row-start: 1;
+    //     grid-row-end: 3;
+    // }
+
+    // #coverimg {
+    //     width: 100%;
+    //     padding: 0%
+    // }
+
+    // #profileimg {
+    //     width: 100%;
+    //     padding: 0%
+    // }
+
+    // .profileIntro {
+    //     background-color: rgb(37, 42, 49, 0.56);
+    // }
+
+    // #userinfo {
+    //     grid-column-start: 2;
+    //     grid-column-end: 3;
+    //     grid-row-start: 2;
+    //     grid-row-end: 3;
+    //     font-size: smaller;
+    //     background-color: rgb(37, 42, 49, 0.56);
+
+    //     padding-left: 23%;
+
+    // }
+
+    // #userprofileimage {
+    //     grid-column-start: 1;
+    //     grid-column-end: 2;
+    //     grid-row-start: 2;
+    //     grid-row-end: 4;
+
+    //     display: block;
+    //     margin-left: 25%;
+    //     margin-right: auto;
+    //     margin-bottom: 1px;
+
+    //     width: 150%;
+    //     border: solid;
+    //     border-radius: 50%;
+    //     border-color: #ffffff;
+    //     position: relative;
+    // }
+
+    // .userposts {
+    //     grid-column-start: 1;
+    //     grid-column-end: 3;
+    //     grid-row-start: 3;
+    //     grid-row-end: 4;
+    // }
+
+    // .ouruserposts {
+    //     grid-column-start: 1;
+    //     grid-column-end: 3;
+    //     grid-row-start: 4;
+    //     grid-row-end: 5;
+    //     margin: 0;
+    //     padding: 16px;
+    //     display: grid;
+
+    //     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    //     overflow-x: auto;
+    // }
+}
