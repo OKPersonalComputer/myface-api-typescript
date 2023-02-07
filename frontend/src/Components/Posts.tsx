@@ -69,7 +69,7 @@ export function Posts() {
 
     return (
         <div>
-            <h2>Posts</h2>
+            <h2>Posts</h2>cd
             <div className="post-container">
                 {postList}
             </div>
