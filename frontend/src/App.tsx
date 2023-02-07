@@ -2,7 +2,7 @@ import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import './App.scss'
 import { Posts } from './Components/Posts'
-import { UserPosts } from './Components/UserPosts'
+import { UsersList } from './Components/UsersList'
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom'
 
 
@@ -16,7 +16,7 @@ function App() {
         <Route path="/posts"
           element={<Posts />} />
         <Route path="/users"
-          element={<UserPosts />} />
+          element={<UsersList />} />
         <Route path="*"
           element={<div>Sorry that page doesn't exist, try these:
             <br /> <Link to="/posts">Posts</Link>

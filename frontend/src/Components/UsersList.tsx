@@ -1,11 +1,13 @@
 
 import React from "react";
 import { useState, useEffect } from "react";
-import '../style/Userposts.scss';
+import '../style/UsersList.scss';
+import { Page } from "../../../src/models/api/page";
+import { UserModel } from "../../../src/models/api/userModel"
 
-export function UserPosts() {
+export function UsersList() {
 
-    const [myData, setMyData] = useState<any>();
+    const [myData, setMyData] = useState<Page<UserModel> | null>(null);
 
     useEffect(() => { fetch("http://localhost:3001/users").then(response => response.json()).then(data => setMyData(data)) });
 
@@ -33,6 +35,7 @@ export function UserPosts() {
     // profileImageUrl	"https://robohash.org/aassinder1l.png?bgset=bg1"
 
     if (!myData) { return <div>Waiting for data!</div> }
+    
     return (<div>
         <h2>Users</h2>
         < div className="user-container">
