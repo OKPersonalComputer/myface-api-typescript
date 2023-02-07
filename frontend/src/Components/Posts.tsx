@@ -30,7 +30,7 @@ export function Posts() {
 
     if (!myData) { return <div>Waiting for data!</div> }
 
-    if (page > 1) {
+    if (myData.previous != null && myData.next != null) {
         return (
             <div>
                 <h2>Posts</h2>
@@ -43,14 +43,36 @@ export function Posts() {
         );
     }
 
+    if (myData.next != null) {
+        return (
+            <div>
+                <h2>Posts</h2>
+                <div className="post-container">
+                    {postList}
+                </div>
+                <button onClick={() => setPage(page + 1)}>Next</button>
+            </div>
+        );
+    }
+
+    if (myData.previous != null) {
+        return (
+            <div>
+                <h2>Posts</h2>
+                <div className="post-container">
+                    {postList}
+                </div>
+                <button onClick={() => setPage(page - 1)}>Previous</button>
+            </div>
+        );
+    } 
+
     return (
         <div>
-            <h2>Posts</h2>
+            <h2>Posts</h2>cd
             <div className="post-container">
                 {postList}
             </div>
-            <button onClick={() => setPage(page + 1)}>Next</button>
-
         </div>
     );
 }
