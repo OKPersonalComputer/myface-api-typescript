@@ -4,8 +4,11 @@ import { useState, useEffect } from "react";
 import { Page } from "../../../src/models/api/page";
 import { PostModel } from "../../../src/models/api/postModel"
 import '../style/posts.scss'
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom'
 
-export function Posts() {
+export function Posts(props: {
+    setUserListID: React.Dispatch<React.SetStateAction<number>>
+}) {
     const [myData, setMyData] = useState<Page<PostModel> | null>(null);
 
     const [page, setPage] = useState(1);
@@ -18,9 +21,8 @@ export function Posts() {
             postList.push(<div>
                 <p>{myData.results[i].message}</p>
                 <p>{myData.results[i].createdAt.toString()}</p>
-                <p>{myData.results[i].postedBy.name} ({myData.results[i].postedBy.username})</p>
+                <Link onClick={() => props.setUserListID(myData.results[i].postedBy.id)} to={`../users/${myData.results[i].postedBy.id}`}>{myData.results[i].postedBy.name} ({myData.results[i].postedBy.username})</Link>
                 <p><img src={myData.results[i].imageUrl}></img></p>
-
                 <button type="submit" className="like_button">Like</button>
                 <button type="submit" className="dislike_button">Dislike</button>
 

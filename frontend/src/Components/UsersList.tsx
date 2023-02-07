@@ -5,18 +5,25 @@ import '../style/UsersList.scss';
 import { Page } from "../../../src/models/api/page";
 import { UserModel } from "../../../src/models/api/userModel"
 
-export function UsersList() {
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom'
+
+
+export function UsersList(props: {
+    setUserListID: React.Dispatch<React.SetStateAction<number>>
+}) {
 
     const [myData, setMyData] = useState<Page<UserModel> | null>(null);
 
-    useEffect(() => { fetch("http://localhost:3001/users").then(response => response.json()).then(data => setMyData(data)) });
+    useEffect(() => { fetch("http://localhost:3001/users")
+    .then(response => response.json())
+    .then(data => setMyData(data)) });
 
 
     let userDetailList = [];
     if (myData) {
         for (let i = 0; i < myData.results.length; i++) {
             userDetailList.push(<div>
-                <p>{myData.results[i].name}</p>
+                <Link onClick={() => props.setUserListID(myData.results[i].id)} to={`${myData.results[i].id}`}>{myData.results[i].name}</Link>
                 <p>{myData.results[i].username}</p>
                 <p>{myData.results[i].email}</p>
                 <p><img src={myData.results[i].profileImageUrl}></img></p>
@@ -24,15 +31,6 @@ export function UsersList() {
         }
     }
 
-
-    // results	
-    // 0	
-    // id	58
-    // name	"Anatollo Assinder"
-    // username	"aassinder1l"
-    // email	"aassinder1l@blinklist.com"
-    // coverImageUrl	"https://picsum.photos/id/302/2100/800"
-    // profileImageUrl	"https://robohash.org/aassinder1l.png?bgset=bg1"
 
     if (!myData) { return <div>Waiting for data!</div> }
     
