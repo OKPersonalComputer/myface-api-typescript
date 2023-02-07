@@ -32,49 +32,15 @@ export function Posts(props: {
 
     if (!myData) { return <div>Waiting for data!</div> }
 
-    if (myData.previous != null && myData.next != null) {
-        return (
-            <div>
-                <h2>Posts</h2>
-                <div className="post-container">
-                    {postList}
-                </div>
-                <button onClick={() => setPage(page - 1)}>Previous</button>
-                <button onClick={() => setPage(page + 1)}>Next</button>
-            </div>
-        );
-    }
-
-    if (myData.next != null) {
-        return (
-            <div>
-                <h2>Posts</h2>
-                <div className="post-container">
-                    {postList}
-                </div>
-                <button onClick={() => setPage(page + 1)}>Next</button>
-            </div>
-        );
-    }
-
-    if (myData.previous != null) {
-        return (
-            <div>
-                <h2>Posts</h2>
-                <div className="post-container">
-                    {postList}
-                </div>
-                <button onClick={() => setPage(page - 1)}>Previous</button>
-            </div>
-        );
-    } 
-
     return (
         <div>
-            <h2>Posts</h2>cd
+            <h2>Posts</h2>
             <div className="post-container">
                 {postList}
             </div>
+            {myData.previous ? <button onClick={() => setPage(page - 1)}>Previous</button> : <></>}
+            {myData.next ? <button onClick={() => setPage(page + 1)}>Next</button> : <></>}
         </div>
     );
+
 }

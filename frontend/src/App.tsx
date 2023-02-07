@@ -7,6 +7,14 @@ import { UserDetail } from './Components/UserDetail'
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom'
 
 
+// navbar
+
+// reuseable components - e.g. post and component - card
+
+// API client file - hold off
+
+// usertypes in url directly
+
 function App() {
   
   const [userID, setuserID] = useState(1);
