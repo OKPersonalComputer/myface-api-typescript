@@ -4,9 +4,9 @@ import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom'
 import { Page } from "../../../src/models/api/page";
 import { PostModel } from "../../../src/models/api/postModel"
 import { setLikeFlag } from "../apiClient/apiClient";
+import { setDislikeFlag } from "../apiClient/apiClient";
 
 import React, { MouseEvent } from "react";
-
 
 
 export function CreatePostList(props: {
@@ -25,7 +25,15 @@ export function CreatePostList(props: {
 
     }
 
-    
+
+    function handleDislike(event: MouseEvent<HTMLButtonElement>, postId: number) {
+        event.preventDefault();
+
+        setDislikeFlag(postId);
+
+    }
+
+
     let postList = [];
     for (let i = 0; i < props.myData.length; i++) {
         postList.push(<div>
@@ -35,7 +43,7 @@ export function CreatePostList(props: {
 
             {props.flag && props.setUserListID ? <Link onClick={() => props.setUserListID!(props.myData[i].postedBy.id)} to={`../users/${props.myData[i].postedBy.id}`}>{props.myData[i].postedBy.name} ({props.myData[i].postedBy.username})</Link> : <></>}
             {props.flag ? <button type="submit" className="like_button" onClick={(event) => handleLike(event, props.myData[i].id)}>Like</button> : <></>}
-            {props.flag ? <button type="submit" className="dislike_button">Dislike</button> : <></>}
+            {props.flag ? <button type="submit" className="dislike_button" onClick={(event) => handleDislike(event, props.myData[i].id)}>Dislike</button> : <></>}
         </div>);
 
     }

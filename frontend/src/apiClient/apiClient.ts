@@ -39,7 +39,7 @@ export function getPostList(page: number, setMyData: React.SetStateAction<any>) 
 };
 
 
-export function setLikeFlag(postId:number) {
+export function setLikeFlag(postId: number) {
     const requestOptions = {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -57,6 +57,24 @@ export function setLikeFlag(postId:number) {
         })
 
     return response;
+}
+
+export function setDislikeFlag(postId: number) {
+    const requestOptions = {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+    };
 
 
+    const response = fetch(`http://localhost:3001/posts/${postId}/dislike/`, requestOptions)
+        .then((response) => {
+            if (response.status !== 200) {
+                alert("Something gone wrong..");
+                throw new Error(response.statusText);
+            }
+
+            return response.json()
+        })
+
+    return response;
 }
