@@ -48,15 +48,15 @@ export function setLikeFlag(postId: number) {
 
     const response = fetch(`http://localhost:3001/posts/${postId}/like/`, requestOptions)
         .then((response) => {
+            console.log(response);
             if (response.status !== 200) {
                 alert("Something gone wrong..");
                 throw new Error(response.statusText);
             }
 
-            return response.json()
+            return response;
         })
 
-    return response;
 }
 
 export function setDislikeFlag(postId: number) {
@@ -73,8 +73,7 @@ export function setDislikeFlag(postId: number) {
                 throw new Error(response.statusText);
             }
 
-            return response.json()
+            return response;
         })
 
-    return response;
 }

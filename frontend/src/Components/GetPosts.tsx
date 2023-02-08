@@ -15,8 +15,6 @@ export function CreatePostList(props: {
     setUserListID?: React.Dispatch<React.SetStateAction<number>>
 }) {
 
-    // const [like, setLike] = useState<string>("")
-    // const [username, setUsername] = useState<string>("")
 
     function handleLike(event: MouseEvent<HTMLButtonElement>, postId: number) {
         event.preventDefault();
