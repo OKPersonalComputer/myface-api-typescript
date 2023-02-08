@@ -9,8 +9,6 @@ import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom'
 
 // navbar
 
-// API client file - hold off
-
 // usertypes in url directlynm
 
 function App() {
@@ -28,7 +26,7 @@ function App() {
         <Route path={`/users/${userID}`}
           element={<UserDetail userDetailID={userID} />} />
         <Route path="/createuser"
-          element={<CreateNewUser />}/>
+          element={<CreateNewUser />} />
         <Route path="*"
           element={<div>Sorry that page doesn't exist, try these:
             <br /> <Link to="/posts">Posts</Link>

@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { Page } from "../../../src/models/api/page";
 import { PostModel } from "../../../src/models/api/postModel"
 import { CreatePostList } from "./GetPosts";
+import { getPostList } from "../apiClient/apiClient";
 
 import '../style/posts.scss'
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom'
@@ -15,7 +16,12 @@ export function Posts(props: {
 
     const [page, setPage] = useState(1);
 
-    useEffect(() => { fetch(`http://localhost:3001/posts/?page=${page}&pageSize=12`).then(response => response.json()).then(data => setMyData(data)) }, [page]);
+
+    useEffect(() => {
+        const foo = async () => { await getPostList(page, setMyData) };
+        foo();
+    },
+        [page]);
 
     if (!myData) { return <div>Waiting for data!</div> }
 
