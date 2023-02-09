@@ -18,8 +18,8 @@ export function Posts(props: {
 
 
     useEffect(() => {
-        const foo = async () => { await getPostList(page, setMyData) };
-        foo();
+        const getPosts = async () => { await getPostList(page, setMyData) };
+        getPosts();
     },
         [page]);
 

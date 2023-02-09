@@ -6,6 +6,7 @@ import { UsersList } from './Components/UsersList'
 import { UserDetail } from './Components/UserDetail'
 import { CreateNewUser } from './Components/CreateNewUser'
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom'
+import { Menu } from './Components/Menu'
 
 // navbar
 
@@ -17,6 +18,7 @@ function App() {
 
   return (
     <Router>
+      <Menu />
       <h1>MyFace</h1>
       <Routes>
         <Route path="/posts"
@@ -28,10 +30,8 @@ function App() {
         <Route path="/createuser"
           element={<CreateNewUser />} />
         <Route path="*"
-          element={<div>Sorry that page doesn't exist, try these:
-            <br /> <Link to="/posts">Posts</Link>
-            <br /> <Link to="/users">Users List</Link>
-            <br /> <Link to="/createuser">Create New User</Link>
+          element={<div>
+            Welcome to MyFace! Use the Menu at the top of the page to navigate.
           </div>} />
       </Routes>
     </Router>

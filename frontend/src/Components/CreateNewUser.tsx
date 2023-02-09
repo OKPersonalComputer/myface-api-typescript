@@ -29,9 +29,6 @@ export function CreateNewUser() {
 
     }
 
-    // const rx = /(.*?)\.(?:png|jpg|jpeg)$/i;
-    //} else { alert("One of your image links is invalid"); }
-    // if (rx.test(profileImageUrl) && rx.test(coverImageUrl)) {
 
     return (<div>
         <h1>Create User</h1>
