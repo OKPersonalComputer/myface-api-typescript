@@ -19,10 +19,10 @@ function App() {
       <Menu />
       <h1>MyFace</h1>
       <Routes>
-        <Route path="/posts">
+        <Route path="posts">
           <Route path=""
             element={<Posts setUserListID={setuserID} />} />
-          <Route path=":pageNumID"
+          <Route path=":pageNumID/:postNumID"
             element={<Posts setUserListID={setuserID} />} />
         </Route>
         <Route path="/users"

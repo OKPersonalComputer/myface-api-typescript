@@ -13,9 +13,9 @@ export function Posts(props: {
     setUserListID: React.Dispatch<React.SetStateAction<number>>,
 }) {
 
-    let { pageNumID } = useParams();
+    let { pageNumID, postNumID } = useParams();
 
-    console.log(pageNumID);
+    const postNum = postNumID ? parseInt(postNumID) : 12;
 
     const [myData, setMyData] = useState<Page<PostModel> | null>(null);
 
@@ -23,7 +23,7 @@ export function Posts(props: {
 
 
     useEffect(() => {
-        const getPosts = async () => { await getPostList(page, 12, setMyData) };
+        const getPosts = async () => { await getPostList(page, postNum, setMyData) };
         getPosts();
     },
         [page]);
