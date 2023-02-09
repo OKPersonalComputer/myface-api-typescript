@@ -46,15 +46,15 @@ export function setLikeFlag(postId: number) {
 
 
     const response = fetch(`http://localhost:3001/posts/${postId}/like/`, requestOptions)
-        .then(response => response.json())
         .then((response) => {
             if (response.status !== 200) {
-                alert("Something went wrong..");
+                alert("You have already liked this post!");
                 throw new Error(response.statusText);
             }
 
             return response;
         })
+    return response;
 
 }
 
@@ -66,14 +66,13 @@ export function setDislikeFlag(postId: number) {
 
 
     const response = fetch(`http://localhost:3001/posts/${postId}/dislike/`, requestOptions)
-        .then(response => response.json())
         .then((response) => {
             if (response.status !== 200) {
-                alert("Something went wrong..");
+                alert("You have already disliked this post!");
                 throw new Error(response.statusText);
             }
 
             return response;
         })
-
+    return response;
 }
