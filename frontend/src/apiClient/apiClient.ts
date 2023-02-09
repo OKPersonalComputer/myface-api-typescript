@@ -32,8 +32,8 @@ export function createUser(name: string,
     return response;
 }
 
-export function getPostList(page: number, setMyData: React.SetStateAction<any>) {
-    return fetch(`http://localhost:3001/posts/?page=${page}&pageSize=12`)
+export function getPostList(page: number, pageSize: number, setMyData: React.SetStateAction<any>) {
+    return fetch(`http://localhost:3001/posts/?page=${page}&pageSize=${pageSize}`)
         .then(response => response.json()).then(data => setMyData(data))
 };
 

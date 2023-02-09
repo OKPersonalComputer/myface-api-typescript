@@ -5,24 +5,26 @@ import { Posts } from './Components/Posts'
 import { UsersList } from './Components/UsersList'
 import { UserDetail } from './Components/UserDetail'
 import { CreateNewUser } from './Components/CreateNewUser'
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom'
+import { BrowserRouter as Router, Routes, Route, Link, useParams } from 'react-router-dom'
 import { Menu } from './Components/Menu'
-
-// navbar
-
-// usertypes in url directlynm
 
 function App() {
 
   const [userID, setuserID] = useState(1);
+
+
 
   return (
     <Router>
       <Menu />
       <h1>MyFace</h1>
       <Routes>
-        <Route path="/posts"
-          element={<Posts setUserListID={setuserID} />} />
+        <Route path="/posts">
+          <Route path=""
+            element={<Posts setUserListID={setuserID} />} />
+          <Route path=":pageNumID"
+            element={<Posts setUserListID={setuserID} />} />
+        </Route>
         <Route path="/users"
           element={<UsersList setUserListID={setuserID} />} />
         <Route path={`/users/${userID}`}
@@ -39,3 +41,7 @@ function App() {
 }
 
 export default App
+
+
+{/* <Route path="/otherposts"
+          element={<Posts setUserListID={setuserID} pageNum={2} postNum={3} />} /> */}
