@@ -4,6 +4,8 @@ import { createUser } from "../apiClient/apiClient";
 import { BrowserRouter as Router, Routes, Route, Link, redirect, useNavigate } from 'react-router-dom';
 import { render } from "react-dom";
 
+import '../style/CreateNewUser.scss'
+
 
 export function CreateNewUser() {
 
@@ -12,6 +14,8 @@ export function CreateNewUser() {
     const [email, setEmail] = useState<string>("")
     const [coverImageUrl, setCoverImageUrl] = useState<string>("")
     const [profileImageUrl, setProfileImageUrl] = useState<string>("")
+    const [errorMessage, setErrorMessage] = useState<string>("");
+
 
 
     const navigate = useNavigate();
@@ -19,17 +23,19 @@ export function CreateNewUser() {
     function handleCreateUser(event: FormEvent<HTMLFormElement>) {
         event.preventDefault();
 
-        const rx = /(.*?)\.(?:png|jpg|jpeg)$/i;
-
-        if (rx.test(profileImageUrl) && rx.test(coverImageUrl)) {
-            createUser(name, username, email, coverImageUrl, profileImageUrl)
-            .then(() => navigate('/users'));
-        } else { alert("One of your image links is invalid"); }
+        createUser(name, username, email, coverImageUrl, profileImageUrl)
+            .then(() => navigate('/users'))
+            .catch(e => setErrorMessage(e.message))
 
     }
 
+    // const rx = /(.*?)\.(?:png|jpg|jpeg)$/i;
+    //} else { alert("One of your image links is invalid"); }
+    // if (rx.test(profileImageUrl) && rx.test(coverImageUrl)) {
+
     return (<div>
         <h1>Create User</h1>
+        <p className="errormessage">{(errorMessage) ? errorMessage : ""}</p>
         <form onSubmit={(event) => handleCreateUser(event)}>
             <label>
                 Name:

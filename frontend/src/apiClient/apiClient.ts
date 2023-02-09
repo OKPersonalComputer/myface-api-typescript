@@ -5,6 +5,8 @@ export function createUser(name: string,
     username: string, email: string,
     coverImageUrl: string, profileImageUrl: string) {
 
+    const url = 'http://localhost:3001/users/create/';
+
     const requestOptions = {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -17,20 +19,17 @@ export function createUser(name: string,
         })
     };
 
-    const response = fetch('http://localhost:3001/users/create/', requestOptions)
+    const response = fetch(url, requestOptions)
+        .then(response => response.json())
         .then((response) => {
             if (response.status !== 200) {
-                alert("You have not filled the responses in correctly");
-                throw new Error(response.statusText);
+                throw new Error(`Something went wrong, ${response.errors[0].param} is an invalid value.`);
+
             }
-
-            alert("Your Details Submitted Successfully");
-
-            return response.json()
+            alert("Your details were submitted successfully");
+            return response;
         })
-
     return response;
-
 }
 
 export function getPostList(page: number, setMyData: React.SetStateAction<any>) {
@@ -47,9 +46,10 @@ export function setLikeFlag(postId: number) {
 
 
     const response = fetch(`http://localhost:3001/posts/${postId}/like/`, requestOptions)
+        .then(response => response.json())
         .then((response) => {
             if (response.status !== 200) {
-                alert("Something gone wrong..");
+                alert("Something went wrong..");
                 throw new Error(response.statusText);
             }
 
@@ -66,9 +66,10 @@ export function setDislikeFlag(postId: number) {
 
 
     const response = fetch(`http://localhost:3001/posts/${postId}/dislike/`, requestOptions)
+        .then(response => response.json())
         .then((response) => {
             if (response.status !== 200) {
-                alert("Something gone wrong..");
+                alert("Something went wrong..");
                 throw new Error(response.statusText);
             }
 
