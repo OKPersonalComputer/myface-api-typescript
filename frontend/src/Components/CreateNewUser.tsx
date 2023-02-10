@@ -30,40 +30,42 @@ export function CreateNewUser() {
     }
 
 
-    return (<div>
+    return (<div >
         <h1>Create User</h1>
         <p className="errormessage">{(errorMessage) ? errorMessage : ""}</p>
         <form onSubmit={(event) => handleCreateUser(event)}>
-            <label>
-                Name:
-                <input type="text"
-                    name="name"
-                    onChange={e => setName(e.target.value)} />
-            </label>
-            <label>
-                Username
-                <input type="text"
-                    name="username"
-                    onChange={e => setUsername(e.target.value)} />
-            </label>
-            <label>
-                Email:
-                <input type="email"
-                    name="email"
-                    onChange={e => setEmail(e.target.value)} />
-            </label>
-            <label>
-                ProfileImageUrl:
-                <input type="url"
-                    name="profileImageUrl"
-                    onChange={e => setProfileImageUrl(e.target.value)} />
-            </label>
-            <label>
-                CoverImageUrl:
-                <input type="url"
-                    name="coverImageUrl"
-                    onChange={e => setCoverImageUrl(e.target.value)} />
-            </label>
+            <div className="CreateUser">
+                <label>
+                    Name:
+                    <input className="textboxes" type="text"
+                        name="name"
+                        onChange={e => setName(e.target.value)} />
+                </label>
+                <label>
+                    Username:
+                    <input className="textboxes" type="text"
+                        name="username"
+                        onChange={e => setUsername(e.target.value)} />
+                </label>
+                <label>
+                    Email:
+                    <input className="textboxes" type="email"
+                        name="email"
+                        onChange={e => setEmail(e.target.value)} />
+                </label>
+                <label>
+                    ProfileImageUrl:
+                    <input className="textboxes" type="url"
+                        name="profileImageUrl"
+                        onChange={e => setProfileImageUrl(e.target.value)} />
+                </label>
+                <label>
+                    CoverImageUrl:
+                    <input className="textboxes" type="url"
+                        name="coverImageUrl"
+                        onChange={e => setCoverImageUrl(e.target.value)} />
+                </label>
+            </div>
             <button type="submit">Submit</button>
         </form>
     </div>)
