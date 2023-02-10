@@ -5,6 +5,8 @@ import { Page } from "../../../src/models/api/page";
 import { UserModel } from "../../../src/models/api/userModel"
 import { CreatePostList } from "./GetPosts";
 
+// import fetch from "node-fetch";
+
 import '../style/UserDetail.scss';
 
 
@@ -38,11 +40,11 @@ export function UserDetail(props: {
     return (<div className="userprofile">
         <h2>Users</h2>
         <img id="coverimg" src={myData.coverImageUrl}></img>
-        <img id="profileimg" src={myData.profileImageUrl}></img>
+        <img id="profileimg" alt="profile-image" src={myData.profileImageUrl}></img>
         <p>{myData.name}</p>
         <p>{myData.username}</p>
         <p>{myData.email}</p>
-        <CreatePostList myData={myData.posts} flag={false}/>
+        <CreatePostList myData={myData.posts} flag={false} />
     </div>
     );
 

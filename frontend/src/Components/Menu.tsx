@@ -10,8 +10,8 @@ export function Menu() {
 
     return (
         <>
-            <button className="button" onClick={() => setMenu(!menu)}>Menu</button>
-            <nav className={menu ? "menu-appear" : "menu-wrapper"}>
+            <button className="button" data-testid="menu-button" onClick={() => setMenu(!menu)}>Menu</button>
+            <nav data-testid="our-menu" className={menu ? "menu-appear" : "menu-wrapper"}>
                 <ul className="menu">
                     <li className="menu-items" ><Link to="/" onClick={() => setMenu(!menu)}>Home</Link></li>
                     <li className="menu-items"><Link to="/posts" onClick={() => setMenu(!menu)}>Posts</Link></li>

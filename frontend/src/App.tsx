@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import reactLogo from './assets/react.svg'
-import './App.scss'
+import './style/App.scss';
 import { Posts } from './Components/Posts'
 import { UsersList } from './Components/UsersList'
 import { UserDetail } from './Components/UserDetail'
@@ -12,36 +12,32 @@ function App() {
 
   const [userID, setuserID] = useState(1);
 
-
-
   return (
-    <Router>
-      <Menu />
-      <h1>MyFace</h1>
-      <Routes>
-        <Route path="posts">
-          <Route path=""
-            element={<Posts setUserListID={setuserID} />} />
-          <Route path=":pageNumID/:postNumID"
-            element={<Posts setUserListID={setuserID} />} />
-        </Route>
-        <Route path="/users"
-          element={<UsersList setUserListID={setuserID} />} />
-        <Route path={`/users/${userID}`}
-          element={<UserDetail userDetailID={userID} />} />
-        <Route path="/createuser"
-          element={<CreateNewUser />} />
-        <Route path="*"
-          element={<div>
-            Welcome to MyFace! Use the Menu at the top of the page to navigate.
-          </div>} />
-      </Routes>
-    </Router>
+    <div id="wholepage">
+      <Router>
+        <Menu />
+        <h1>MyFace</h1>
+        <Routes>
+          <Route path="posts">
+            <Route path=""
+              element={<Posts setUserListID={setuserID} />} />
+            <Route path=":pageNumID/:postNumID"
+              element={<Posts setUserListID={setuserID} />} />
+          </Route>
+          <Route path="/users"
+            element={<UsersList setUserListID={setuserID} />} />
+          <Route path={`/users/${userID}`}
+            element={<UserDetail userDetailID={userID} />} />
+          <Route path="/createuser"
+            element={<CreateNewUser />} />
+          <Route path="*"
+            element={<div>
+              Welcome to MyFace! Use the Menu at the top of the page to navigate.
+            </div>} />
+        </Routes>
+      </Router>
+    </div>
   )
 }
 
 export default App
-
-
-{/* <Route path="/otherposts"
-          element={<Posts setUserListID={setuserID} pageNum={2} postNum={3} />} /> */}

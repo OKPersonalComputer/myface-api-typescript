@@ -1,5 +1,19 @@
 /* Add your styles here. */
-@import "menu.css";
+
+#root {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 2rem;
+    text-align: center;
+}
+
+
+#wholepage {
+    font-family: "Segoe UI", Helvetica, sans-serif;
+    color: #ffffff;
+    background-color: rgb(29, 40, 54);
+    margin: 0;
+}
 
 a {
     color: rgb(77, 99, 209);
